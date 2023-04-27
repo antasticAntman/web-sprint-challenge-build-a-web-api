@@ -11,11 +11,11 @@ function logger(req, res, next) { //eslint-disable-line
 
 async function validateProjectId(req,res,next) {
     try {
-    const project = await Project.get(req.params.id)
-    if(!project) {
-        res.status(404).json({
-            message: "not found"
-        })
+        const project = await Project.get(req.params.id)
+        if(!project) {
+            res.status(404).json({
+                message: "not found"
+            })
     } else {
         req.project = project
         next()
